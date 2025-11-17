@@ -116,3 +116,31 @@ logs.jsonl (every step with timestamps and verifier decisions)
 
 metrics.json (success rate, retries)
 
+
+## How to run (quick)
+1. Clone repo
+
+git clone https://github.com/devxtreme001/tasksense.git cd tasksense
+
+2. Create virtualenv and install
+
+python -m venv venv source venv/bin/activate pip install -r requirements.txt
+
+3. Run demo in simulation mode (no API keys required)
+
+python demo/run_demo.py --mode simulation
+
+4. To wire real APIs: set USE_SIMULATION=False in config or set env var TASKSENSE_MODE=real. See `docs/REAL_SETUP.md` for instructions to set up Vertex AI, Custom Search, Gmail, and Calendar.
+
+## Repo structure
+See folder tree in this README or run `tree -L 2`.
+
+## Evaluation
+Run `python evaluate/harness.py` to run predefined scenario suite. Results will be in `out/metrics.json` and logs in `out/logs.jsonl`.
+
+## Video
+A 3-minute pitch script is in `docs/video_script.md`.
+
+## Notes
+- Never commit API keys. Use environment variables or GitHub Secrets.
+- Default simulation mode ensures reproducibility for judges.
